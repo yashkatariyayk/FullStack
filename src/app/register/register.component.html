@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Name</label>
+        <input type="text" class="form-control" 
+          formControlName="Name" 
+          #Name />
+      </div>
+      <div *ngIf="angForm.controls['Name'].invalid && (angForm.controls['Name'].dirty || angForm.controls['Name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Name'].errors.required">
+           Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Email</label>
+        <input type class="form-control"         formControlName="Email"         #Email>
+      </div>
+      
+      
+      <div class="form-group">
+        <label class="col-md-4">Password</label>
+        <input type class="form-control"         formControlName="Password"         #Password>
+      </div>
+      
+
+      <div class="form-group">
+        <button (click) = "addDetail(Name.value, Email.value, Password.value)" type="submit" class="btn btn-primary">        
+        Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
